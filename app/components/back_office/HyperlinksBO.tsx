@@ -1,0 +1,152 @@
+"use client";
+
+import {
+  Avatar,
+  Box,
+  Button,
+  Group,
+  Menu,
+  MenuDropdown,
+  MenuItem,
+  MenuTarget,
+  Text,
+} from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
+import { IconCurrencyXrp, IconLogout, IconMenuDeep } from "@tabler/icons-react";
+import React, { useState } from "react";
+import { DarkerColor, HyperlinkHoverColor } from "../../config/color";
+import Link from "next/link";
+import { signOut } from "next-auth/react";
+import { modals } from "@mantine/modals";
+import LogIn from "@/app/components/LogIn";
+
+interface Props {
+  text: string;
+  href: string;
+}
+
+export const Hyperlinks = ({ text, href }: Props) => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
+  return (
+    <Link
+      href={href}
+      className={`px-2 py-1 hover:bg-green-400/20 transition rounded-md`}
+    >
+      {text}
+    </Link>
+  );
+};
+
+const LinksGroup = (
+  <>
+    <Hyperlinks text="Dashboard" href="/back_office" />
+    <Hyperlinks text="My Appointment" href="/back_office/appointments" />
+    <Hyperlinks
+      text="Manage Landing Page"
+      href="/back_office/manage_landing_page"
+    />
+    <Hyperlinks
+      text="Manage Questionnaires"
+      href="/back_office/manage_questionnaire"
+    />
+    <Hyperlinks text="Schedule" href="/back_office/schedule" />
+    <Hyperlinks text="Manage Agents" href="/back_office/manage_agents" />
+    <Hyperlinks text="Manage Staffs" href="/back_office/manage_staffs" />
+    <Hyperlinks text="Manage Clients" href="/back_office/manage_clients" />
+  </>
+);
+
+export const PCLinksGroupBO = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  return <>{!isMobile && <Group gap={1}>{LinksGroup}</Group>}</>;
+};
+
+export const MobileLinksGroupBO = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      {isMobile && (
+        <Menu shadow="md" width={200}>
+          <Menu.Target>
+            <IconMenuDeep size={30} />
+          </Menu.Target>
+          <MenuDropdown>
+            <Group style={{ flexDirection: "column" }} wrap="nowrap" gap={2}>
+              {LinksGroup}
+            </Group>
+          </MenuDropdown>
+        </Menu>
+      )}
+    </>
+  );
+};
+
+export const UserMenuBO = ({ session }: any) => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
+  return (
+    <Menu>
+      {session ? (
+        <MenuTarget>
+          <Group>
+            <>
+              {session?.user?.profileImage ? (
+                <Avatar src={session?.user?.profileImage} color="initials" />
+              ) : (
+                <Avatar
+                  key={session?.user?.name}
+                  name={session?.user?.name as string | undefined}
+                  color="initials"
+                  allowedInitialsColors={[
+                    "grape",
+                    "red",
+                    "violet",
+                    "yellow",
+                    "lime",
+                    "teal",
+                    "cyan",
+                  ]}
+                />
+              )}
+            </>
+
+            {!isMobile && (
+              <Text size="sm" fw={500}>
+                {session?.user?.name}
+              </Text>
+            )}
+          </Group>
+        </MenuTarget>
+      ) : (
+        <Avatar
+          key={session?.user?.name}
+          name={session?.user?.name as string | undefined}
+          color="initials"
+          onClick={() =>
+            modals.open({
+              children: (
+                <LogIn
+                  session={session}
+                  location="/client"
+                  role="staff"
+                  inModal
+                />
+              ),
+            })
+          }
+        />
+      )}
+      <MenuDropdown miw={200}>
+        <MenuItem
+          leftSection={<IconLogout color="red" />}
+          onClick={() => signOut()}
+        >
+          Sign out
+        </MenuItem>
+      </MenuDropdown>
+    </Menu>
+  );
+};

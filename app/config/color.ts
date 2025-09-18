@@ -1,0 +1,7 @@
+export const PrimaryColor = "#00FFA6"
+export const SecondaryColor = "#00a98a"
+export const DarkerColor = "#006754"
+export const PTextColor = "#ffffff"
+export const STextColor = "#e0e0e0"
+export const FooterLBlack = "#2e2e2e"
+export const HyperlinkHoverColor = "#04fcaa2e"

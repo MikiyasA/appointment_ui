@@ -1,0 +1,26 @@
+✅ Solution: Add Your Google Account as a Test User
+Go to Google Cloud Console
+
+Open your OAuth consent screen:
+From the left sidebar: APIs & Services → OAuth consent screen
+Under "Test users", add the Gmail address you're trying to use:
+
+frehiwotnegashkwi@gmail.com
+
+Click Save and Continue
+You can now sign in and test the app using this account.
+
+🛠 Optional: Move to Production (for broader access)
+To allow any user to sign in (not just test accounts), you must:
+Click "Publish App" on the OAuth consent screen page.
+Complete the OAuth verification process with Google (takes 3–7 days).
+
+This involves:
+Verifying your domain (if applicable)
+Providing a privacy policy URL
+Explaining why your app needs sensitive scopes like calendar
+
+🧪 Tip: Stay in Testing While Developing
+You can add up to 100 test users in testing mode.
+
+All test users must use Gmail or Google Workspace emails.
