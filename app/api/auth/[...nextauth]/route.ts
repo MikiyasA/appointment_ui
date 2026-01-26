@@ -49,7 +49,7 @@ export const authOptions: NextAuthOptions = {
                     (user as any).access = "client";
                 } else if (userType === "staff") {
                     const [firstName, lastName] = user.name?.split(" ") ?? ["-", "-"];
-                    const res = await fetch(`${process.env.NEXT_PUBLIC_BE_BASE_URL}/Staff`, {
+                    const res = await fetch(`${process.env.NEXT_PUBLIC_BE_BASE_URL}/staff`, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -59,12 +59,16 @@ export const authOptions: NextAuthOptions = {
                             firstName: firstName || "",
                             lastName: lastName || "",
                             status: "Auto-Added",
-                            role: ["staff"],
+                            role: ["New-Staff"],
                         }),
                     });
                     const result = await res.json();
-                    console.log({ result })
-                    if (!res.ok) console.error(result.message);
+                    console.log("resultStaff", result, res)
+                    if (!res.ok) {
+                        console.error(result.message);
+                        console.log("resultStaffeeeeeeeeeeeee", result, res)
+                        return false
+                    };
                     (user as any).id = result.id;
                     (user as any).role = result.role;
                     (user as any).access = "staff";

@@ -141,4 +141,3 @@ export function formatCamelCaseLabel(camelCase: string): string {
         .replace(/([A-Z])/g, ' $1') // insert space before capital letters
         .replace(/^./, (str) => str.toUpperCase()); // capitalize the first letter
 }
-

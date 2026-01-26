@@ -18,7 +18,7 @@ export const badgeFormatter = (text: string) => {
       ? "orange"
       : "gray"; // TODO: color as per choice
   return (
-    <Badge radius={7} color={color}>
+    <Badge radius={7} color={color} component="span">
       {text}
     </Badge>
   );
@@ -35,7 +35,7 @@ export const statusBadgeFormatter = (text: string) => {
       ? "cyan"
       : "gray";
   return (
-    <Badge radius={7} color={color} component="p">
+    <Badge radius={7} color={color} component="span">
       {text}
     </Badge>
   );
@@ -62,7 +62,13 @@ export const listStringFormatter = (rolls: string[]) => {
   return (
     <Group gap={3}>
       {rolls.map((el, i) => (
-        <Badge key={i} radius={7} variant="outline" color={getRandomColor()}>
+        <Badge
+          key={i}
+          radius={7}
+          variant="outline"
+          color={getRandomColor()}
+          component="span"
+        >
           {el}
         </Badge>
       ))}

@@ -73,7 +73,7 @@ const DateTimePicker = ({ questionerData }: Props) => {
 
   const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   const offset = dayjs().tz(timeZone).format("Z");
-  const label = `Select date and time in your local time zone (${timeZone},  UTC${offset})`;
+  const label = `Select date and time is in your local time zone (${timeZone}/ UTC${offset})`;
 
   return (
     <Center p={30}>

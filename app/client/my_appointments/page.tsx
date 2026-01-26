@@ -16,6 +16,7 @@ const MyAppointmentPage = async () => {
   const myAllAppointments: Appointment[] = await getData(
     `appointment/findAllByClientId/${session?.userId}`
   );
+  console.log({ myAllAppointments, session });
 
   return (
     <Box m={30}>

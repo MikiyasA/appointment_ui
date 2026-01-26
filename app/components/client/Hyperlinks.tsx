@@ -43,8 +43,8 @@ const LinksGroup = (
   <>
     <Hyperlinks text="Dashboard" href="/client" />
     <Hyperlinks text="My Appointments" href="/client/my_appointments" />
-    <Hyperlinks text={`ABOUT ${CompanyName}`} href="/client/about_us" />
-    <Hyperlinks text={`CONTACT ${CompanyName}`} href="/client/contact_us" />
+    <Hyperlinks text={`About ${CompanyName}`} href="/client/about_us" />
+    <Hyperlinks text={`Contact ${CompanyName}`} href="/client/contact_us" />
   </>
 );
 

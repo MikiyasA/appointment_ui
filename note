@@ -9,3 +9,11 @@ Priority - sort by Priority - ✅
 appointment agent update for only NEW
 update appointment time
 calender color 
+
+
+once staff user created - not to access the page directly 
+page restriction per role - sup: can access the schedule, agent: appointment 
+update schedule 
+http://localhost:3000/back_office/manage_staffs - filter by Role not working 
+update profile and additional 
+login page - link to go to home page
