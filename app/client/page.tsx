@@ -1,11 +1,11 @@
 import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
 import { AuthSessionProvider } from "../components/AuthSessionProvider";
 import { Box } from "@mantine/core";
 import LogInOut from "../components/LogIn";
 import { Suspense } from "react";
 import Dashboard from "../components/client/Dashboard";
 import { getData } from "../config/utils";
+import { authOptions } from "../api/auth/[...nextauth]/authOptions";
 
 interface PageProps {
   params: {
@@ -15,7 +15,7 @@ interface PageProps {
 export default async function ClientDashboard() {
   const session = await getServerSession(authOptions);
   const data = await getData(
-    `appointment/findCurrentByClientId/${session?.userId}`
+    `appointment/findCurrentByClientId/${session?.userId}`,
   ); // when you use data on next component use(data), you can omit await here
   // TODO: all appointments findAllByClientId
   console.log({ data });

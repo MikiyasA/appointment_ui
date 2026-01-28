@@ -4,9 +4,9 @@ import React from "react";
 import Link from "next/link";
 import { DarkerColor, PrimaryColor } from "../../config/color";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { MobileLinksGroupBO, PCLinksGroupBO, UserMenuBO } from "./HyperlinksBO";
 import { NavSpacer } from "../NavSpacer";
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 
 const NavBarBackOffice = async () => {
   const session = await getServerSession(authOptions);

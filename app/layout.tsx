@@ -17,8 +17,8 @@ import {
 import { ModalsProvider } from "@mantine/modals";
 import { SessionProvider } from "next-auth/react";
 import { AuthSessionProvider } from "./components/AuthSessionProvider";
-import { authOptions } from "./api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]/authOptions";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

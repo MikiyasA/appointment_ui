@@ -14,9 +14,9 @@ import React from "react";
 import Link from "next/link";
 import { DarkerColor, PrimaryColor } from "../../config/color";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { MobileLinksGroup, PCLinksGroup, UserMenu } from "./Hyperlinks";
 import { NavSpacer } from "../NavSpacer";
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 
 const NavBarClient = async () => {
   const session = await getServerSession(authOptions);

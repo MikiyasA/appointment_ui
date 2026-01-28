@@ -63,7 +63,8 @@ export function Providers({ children }: { children: ReactNode }) {
       //   withNormalizeCSS
     >
       <Notifications position="top-right" />
-      <ThemeSwitcher setThemeName={setThemeName} />
+      <ThemeSwitcher />
+      {/* setThemeName={setThemeName} /> */}
       {children}
     </MantineProvider>
   );

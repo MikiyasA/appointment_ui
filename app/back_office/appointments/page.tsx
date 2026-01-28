@@ -1,4 +1,4 @@
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 import AppointmentList from "@/app/components/AppointmentList";
 import { DarkerColor, SecondaryColor } from "@/app/config/color";
 import { Appointment } from "@/app/config/type";
@@ -12,10 +12,10 @@ const AppointmentsPage = async () => {
 
   const allAppointments: Appointment[] = await getData("appointment");
   const activeAppointments: Appointment[] = await getData(
-    "appointment/findActiveAppointments"
+    "appointment/findActiveAppointments",
   );
   const myAppointments: Appointment[] = await getData(
-    `appointment/findByAgentId/${session?.userId}`
+    `appointment/findByAgentId/${session?.userId}`,
   );
 
   return (

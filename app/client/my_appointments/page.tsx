@@ -1,4 +1,4 @@
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 import AppointmentList from "@/app/components/AppointmentList";
 import { SecondaryColor } from "@/app/config/color";
 import { Appointment } from "@/app/config/type";
@@ -11,10 +11,10 @@ const MyAppointmentPage = async () => {
   const session = await getServerSession(authOptions);
 
   const activeAppointments: Appointment[] = await getData(
-    `appointment/findCurrentByClientId/${session?.userId}`
+    `appointment/findCurrentByClientId/${session?.userId}`,
   );
   const myAllAppointments: Appointment[] = await getData(
-    `appointment/findAllByClientId/${session?.userId}`
+    `appointment/findAllByClientId/${session?.userId}`,
   );
   console.log({ myAllAppointments, session });
 

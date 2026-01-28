@@ -3,7 +3,7 @@ import LogIn from "../components/LogIn";
 import { Box, Select } from "@mantine/core";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+import { authOptions } from "../api/auth/[...nextauth]/authOptions";
 
 const LoginPage = async () => {
   const session = await getServerSession(authOptions);

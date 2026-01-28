@@ -7,8 +7,8 @@ import "@mantine/core/styles.css";
 import { Box, MantineProvider } from "@mantine/core";
 import NavBarClient from "../components/client/NavBarClient";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
+import { authOptions } from "../api/auth/[...nextauth]/authOptions";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

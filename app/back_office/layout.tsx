@@ -15,7 +15,7 @@ import NavBarBackOffice from "../components/back_office/NavBarBackOffice";
 import { NavSpacer } from "../components/NavSpacer";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+import { authOptions } from "../api/auth/[...nextauth]/authOptions";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
